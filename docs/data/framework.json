@@ -1,0 +1,2353 @@
+{
+  "categories": [
+    {
+      "key": "profile",
+      "label": "Profile visibility",
+      "short": "Profile",
+      "weight": 10,
+      "description": "How much of your profile and social graph can be discovered?"
+    },
+    {
+      "key": "personal_info",
+      "label": "Personal information",
+      "short": "Personal info",
+      "weight": 15,
+      "description": "Whether sensitive profile details are exposed publicly."
+    },
+    {
+      "key": "location",
+      "label": "Location privacy",
+      "short": "Location",
+      "weight": 15,
+      "description": "Location, timing, geotag, and routine-sharing practices."
+    },
+    {
+      "key": "content",
+      "label": "Posts and content",
+      "short": "Content",
+      "weight": 10,
+      "description": "Audience controls and clues inside shared photos or posts."
+    },
+    {
+      "key": "connections",
+      "label": "Friends and followers",
+      "short": "Connections",
+      "weight": 10,
+      "description": "How connection requests and social-graph visibility are handled."
+    },
+    {
+      "key": "tagging",
+      "label": "Tagging and mentions",
+      "short": "Tagging",
+      "weight": 5,
+      "description": "Whether other people can expose you through tags or mentions."
+    },
+    {
+      "key": "account_security",
+      "label": "Account security",
+      "short": "Account security",
+      "weight": 15,
+      "description": "Authentication, recovery, session, and device-review habits."
+    },
+    {
+      "key": "third_party",
+      "label": "Third-party applications",
+      "short": "Third-party apps",
+      "weight": 5,
+      "description": "Review of connected apps and the permissions they hold."
+    },
+    {
+      "key": "social_engineering",
+      "label": "Social engineering",
+      "short": "Social engineering",
+      "weight": 10,
+      "description": "Habits that help resist deceptive messages and requests."
+    },
+    {
+      "key": "digital_footprint",
+      "label": "Digital footprint",
+      "short": "Digital footprint",
+      "weight": 5,
+      "description": "How regularly older content, accounts, and settings are revisited."
+    }
+  ],
+  "groups": [
+    {
+      "key": "profile",
+      "label": "Profile visibility",
+      "short": "Profile",
+      "weight": 10,
+      "description": "How much of your profile and social graph can be discovered?",
+      "questions": [
+        {
+          "id": "profile_visibility",
+          "category": "profile",
+          "prompt": "How visible is your main profile to people you do not know?",
+          "help": "Choose the broadest audience that can see profile details. Visibility is not automatically unsafe; it changes exposure.",
+          "options": [
+            {
+              "value": "PUBLIC",
+              "label": "Public"
+            },
+            {
+              "value": "FRIENDS_ONLY",
+              "label": "Followers / friends"
+            },
+            {
+              "value": "PRIVATE",
+              "label": "Private"
+            },
+            {
+              "value": "NOT_SURE",
+              "label": "Not sure"
+            }
+          ],
+          "risk_by_value": {
+            "PUBLIC": 4,
+            "FRIENDS_ONLY": 2,
+            "PRIVATE": 0,
+            "NOT_SURE": 1
+          },
+          "max_points": 4,
+          "finding_title": "Profile is broadly visible",
+          "recommendation": "Choose a limited audience for personal details and review each platform's public-profile preview.",
+          "priority": "IMPORTANT"
+        },
+        {
+          "id": "search_engine_visible",
+          "category": "profile",
+          "prompt": "Can search engines show your profile or posts?",
+          "help": "Think about the platform's search-indexing control, not a search for your own name.",
+          "options": [
+            {
+              "value": "YES",
+              "label": "Yes"
+            },
+            {
+              "value": "NO",
+              "label": "No"
+            },
+            {
+              "value": "SOMETIMES",
+              "label": "Sometimes"
+            },
+            {
+              "value": "NOT_SURE",
+              "label": "Not sure"
+            }
+          ],
+          "risk_by_value": {
+            "YES": 4,
+            "NO": 0,
+            "SOMETIMES": 2,
+            "NOT_SURE": 1
+          },
+          "max_points": 4,
+          "finding_title": "Search-engine visibility is enabled",
+          "recommendation": "Turn off external search indexing if broad discoverability is not needed.",
+          "priority": "IMPORTANT"
+        },
+        {
+          "id": "discoverable_by_phone_email",
+          "category": "profile",
+          "prompt": "Can people find your profile using contact details they already know?",
+          "help": "Do not enter a phone number or email. Answer only about the discoverability setting.",
+          "options": [
+            {
+              "value": "YES",
+              "label": "Yes"
+            },
+            {
+              "value": "NO",
+              "label": "No"
+            },
+            {
+              "value": "SOMETIMES",
+              "label": "Sometimes"
+            },
+            {
+              "value": "NOT_SURE",
+              "label": "Not sure"
+            }
+          ],
+          "risk_by_value": {
+            "YES": 4,
+            "NO": 0,
+            "SOMETIMES": 2,
+            "NOT_SURE": 1
+          },
+          "max_points": 4,
+          "finding_title": "Profile discovery by contact details is enabled",
+          "recommendation": "Limit contact-based discovery where the platform provides that control.",
+          "priority": "IMPORTANT"
+        },
+        {
+          "id": "follower_list_public",
+          "category": "profile",
+          "prompt": "Can anyone view your followers or following list?",
+          "help": "A visible social graph can reveal interests, affiliations, or relationships.",
+          "options": [
+            {
+              "value": "YES",
+              "label": "Yes"
+            },
+            {
+              "value": "NO",
+              "label": "No"
+            },
+            {
+              "value": "SOMETIMES",
+              "label": "Sometimes"
+            },
+            {
+              "value": "NOT_SURE",
+              "label": "Not sure"
+            }
+          ],
+          "risk_by_value": {
+            "YES": 4,
+            "NO": 0,
+            "SOMETIMES": 2,
+            "NOT_SURE": 1
+          },
+          "max_points": 4,
+          "finding_title": "Follower list is visible",
+          "recommendation": "Restrict who can view your follower and following lists if supported.",
+          "priority": "IMPORTANT"
+        },
+        {
+          "id": "public_activity_visible",
+          "category": "profile",
+          "prompt": "Is your activity status or recent activity visible to a broad audience?",
+          "help": "Examples include online status, last active, or public likes and follows.",
+          "options": [
+            {
+              "value": "YES",
+              "label": "Yes"
+            },
+            {
+              "value": "NO",
+              "label": "No"
+            },
+            {
+              "value": "SOMETIMES",
+              "label": "Sometimes"
+            },
+            {
+              "value": "NOT_SURE",
+              "label": "Not sure"
+            }
+          ],
+          "risk_by_value": {
+            "YES": 4,
+            "NO": 0,
+            "SOMETIMES": 2,
+            "NOT_SURE": 1
+          },
+          "max_points": 4,
+          "finding_title": "Activity signals are broadly visible",
+          "recommendation": "Disable activity indicators or narrow their audience if you do not need them.",
+          "priority": "IMPORTANT"
+        }
+      ]
+    },
+    {
+      "key": "personal_info",
+      "label": "Personal information",
+      "short": "Personal info",
+      "weight": 15,
+      "description": "Whether sensitive profile details are exposed publicly.",
+      "questions": [
+        {
+          "id": "phone_public",
+          "category": "personal_info",
+          "prompt": "Is a phone number publicly visible on your profile?",
+          "help": "Do not type the number. Report only whether a number is visible to the public.",
+          "options": [
+            {
+              "value": "YES",
+              "label": "Yes"
+            },
+            {
+              "value": "NO",
+              "label": "No"
+            },
+            {
+              "value": "SOMETIMES",
+              "label": "Sometimes"
+            },
+            {
+              "value": "NOT_SURE",
+              "label": "Not sure"
+            }
+          ],
+          "risk_by_value": {
+            "YES": 4,
+            "NO": 0,
+            "SOMETIMES": 2,
+            "NOT_SURE": 1
+          },
+          "max_points": 4,
+          "finding_title": "Phone number may be publicly exposed",
+          "recommendation": "Hide the number from public profile fields and use platform contact controls instead.",
+          "priority": "IMMEDIATE"
+        },
+        {
+          "id": "email_public",
+          "category": "personal_info",
+          "prompt": "Is a personal email address publicly visible on your profile?",
+          "help": "Do not type an address. This checks visibility only.",
+          "options": [
+            {
+              "value": "YES",
+              "label": "Yes"
+            },
+            {
+              "value": "NO",
+              "label": "No"
+            },
+            {
+              "value": "SOMETIMES",
+              "label": "Sometimes"
+            },
+            {
+              "value": "NOT_SURE",
+              "label": "Not sure"
+            }
+          ],
+          "risk_by_value": {
+            "YES": 4,
+            "NO": 0,
+            "SOMETIMES": 2,
+            "NOT_SURE": 1
+          },
+          "max_points": 4,
+          "finding_title": "Personal email may be publicly exposed",
+          "recommendation": "Remove personal email from public profile fields; use a separate contact route if needed.",
+          "priority": "IMPORTANT"
+        },
+        {
+          "id": "birthday_public",
+          "category": "personal_info",
+          "prompt": "Is your full birth date visible to people beyond a trusted audience?",
+          "help": "This is about visibility of the full date, not the date itself.",
+          "options": [
+            {
+              "value": "YES",
+              "label": "Yes"
+            },
+            {
+              "value": "NO",
+              "label": "No"
+            },
+            {
+              "value": "SOMETIMES",
+              "label": "Sometimes"
+            },
+            {
+              "value": "NOT_SURE",
+              "label": "Not sure"
+            }
+          ],
+          "risk_by_value": {
+            "YES": 4,
+            "NO": 0,
+            "SOMETIMES": 2,
+            "NOT_SURE": 1
+          },
+          "max_points": 4,
+          "finding_title": "Full birth date may be visible",
+          "recommendation": "Hide the full birth date or show only a non-identifying birthday setting.",
+          "priority": "IMPORTANT"
+        },
+        {
+          "id": "home_info_public",
+          "category": "personal_info",
+          "prompt": "Does your public profile reveal home-related details?",
+          "help": "Examples include a home address, building, or specific residential clue. Do not enter the detail.",
+          "options": [
+            {
+              "value": "YES",
+              "label": "Yes"
+            },
+            {
+              "value": "NO",
+              "label": "No"
+            },
+            {
+              "value": "SOMETIMES",
+              "label": "Sometimes"
+            },
+            {
+              "value": "NOT_SURE",
+              "label": "Not sure"
+            }
+          ],
+          "risk_by_value": {
+            "YES": 4,
+            "NO": 0,
+            "SOMETIMES": 2,
+            "NOT_SURE": 1
+          },
+          "max_points": 4,
+          "finding_title": "Home-related details may be exposed",
+          "recommendation": "Remove precise residential information and avoid sharing identifying home clues.",
+          "priority": "IMMEDIATE"
+        },
+        {
+          "id": "workplace_public",
+          "category": "personal_info",
+          "prompt": "Is your workplace or a specific work location publicly visible?",
+          "help": "This asks about a visibility setting or profile detail, not the employer's name.",
+          "options": [
+            {
+              "value": "YES",
+              "label": "Yes"
+            },
+            {
+              "value": "NO",
+              "label": "No"
+            },
+            {
+              "value": "SOMETIMES",
+              "label": "Sometimes"
+            },
+            {
+              "value": "NOT_SURE",
+              "label": "Not sure"
+            }
+          ],
+          "risk_by_value": {
+            "YES": 4,
+            "NO": 0,
+            "SOMETIMES": 2,
+            "NOT_SURE": 1
+          },
+          "max_points": 4,
+          "finding_title": "Workplace details may be public",
+          "recommendation": "Limit workplace details to the audience that needs them; avoid posting access or badge information.",
+          "priority": "IMPORTANT"
+        },
+        {
+          "id": "education_public",
+          "category": "personal_info",
+          "prompt": "Is your school, college, or education history publicly visible?",
+          "help": "This asks whether the detail is public, not which school you attended.",
+          "options": [
+            {
+              "value": "YES",
+              "label": "Yes"
+            },
+            {
+              "value": "NO",
+              "label": "No"
+            },
+            {
+              "value": "SOMETIMES",
+              "label": "Sometimes"
+            },
+            {
+              "value": "NOT_SURE",
+              "label": "Not sure"
+            }
+          ],
+          "risk_by_value": {
+            "YES": 4,
+            "NO": 0,
+            "SOMETIMES": 2,
+            "NOT_SURE": 1
+          },
+          "max_points": 4,
+          "finding_title": "Education details may be public",
+          "recommendation": "Review education visibility and remove details that are not needed publicly.",
+          "priority": "IMPORTANT"
+        },
+        {
+          "id": "relationship_public",
+          "category": "personal_info",
+          "prompt": "Are family or relationship details publicly visible?",
+          "help": "Consider whether posts or profile fields reveal other people's information too.",
+          "options": [
+            {
+              "value": "YES",
+              "label": "Yes"
+            },
+            {
+              "value": "NO",
+              "label": "No"
+            },
+            {
+              "value": "SOMETIMES",
+              "label": "Sometimes"
+            },
+            {
+              "value": "NOT_SURE",
+              "label": "Not sure"
+            }
+          ],
+          "risk_by_value": {
+            "YES": 4,
+            "NO": 0,
+            "SOMETIMES": 2,
+            "NOT_SURE": 1
+          },
+          "max_points": 4,
+          "finding_title": "Family or relationship details may be exposed",
+          "recommendation": "Share family and relationship details with a limited audience and consider others' consent.",
+          "priority": "IMPORTANT"
+        }
+      ]
+    },
+    {
+      "key": "location",
+      "label": "Location privacy",
+      "short": "Location",
+      "weight": 15,
+      "description": "Location, timing, geotag, and routine-sharing practices.",
+      "questions": [
+        {
+          "id": "current_location_public",
+          "category": "location",
+          "prompt": "Do you share your current or real-time location with a broad audience?",
+          "help": "This includes live location or posts that make your current whereabouts obvious.",
+          "options": [
+            {
+              "value": "YES",
+              "label": "Yes"
+            },
+            {
+              "value": "NO",
+              "label": "No"
+            },
+            {
+              "value": "SOMETIMES",
+              "label": "Sometimes"
+            },
+            {
+              "value": "NOT_SURE",
+              "label": "Not sure"
+            }
+          ],
+          "risk_by_value": {
+            "YES": 4,
+            "NO": 0,
+            "SOMETIMES": 2,
+            "NOT_SURE": 1
+          },
+          "max_points": 4,
+          "finding_title": "Real-time location may be exposed",
+          "recommendation": "Avoid broadcasting live location publicly; review live-sharing permissions and audience.",
+          "priority": "IMMEDIATE"
+        },
+        {
+          "id": "geotagging_enabled",
+          "category": "location",
+          "prompt": "Are location tags or photo geotags enabled on public posts?",
+          "help": "The app may attach a place label or coordinates. No coordinates are requested.",
+          "options": [
+            {
+              "value": "YES",
+              "label": "Yes"
+            },
+            {
+              "value": "NO",
+              "label": "No"
+            },
+            {
+              "value": "SOMETIMES",
+              "label": "Sometimes"
+            },
+            {
+              "value": "NOT_SURE",
+              "label": "Not sure"
+            }
+          ],
+          "risk_by_value": {
+            "YES": 4,
+            "NO": 0,
+            "SOMETIMES": 2,
+            "NOT_SURE": 1
+          },
+          "max_points": 4,
+          "finding_title": "Geotagging may reveal places",
+          "recommendation": "Disable automatic geotagging where appropriate and review location tags before posting.",
+          "priority": "IMPORTANT"
+        },
+        {
+          "id": "checkins_enabled",
+          "category": "location",
+          "prompt": "Do you publicly check in at places while you are there?",
+          "help": "This includes public venue tags or real-time event check-ins.",
+          "options": [
+            {
+              "value": "YES",
+              "label": "Yes"
+            },
+            {
+              "value": "NO",
+              "label": "No"
+            },
+            {
+              "value": "SOMETIMES",
+              "label": "Sometimes"
+            },
+            {
+              "value": "NOT_SURE",
+              "label": "Not sure"
+            }
+          ],
+          "risk_by_value": {
+            "YES": 4,
+            "NO": 0,
+            "SOMETIMES": 2,
+            "NOT_SURE": 1
+          },
+          "max_points": 4,
+          "finding_title": "Real-time check-ins may reveal whereabouts",
+          "recommendation": "Consider sharing a location only with a limited audience or after leaving.",
+          "priority": "IMPORTANT"
+        },
+        {
+          "id": "travel_plans_public",
+          "category": "location",
+          "prompt": "Are upcoming travel plans visible before or during a trip?",
+          "help": "Answer about the practice, not the destination or dates.",
+          "options": [
+            {
+              "value": "YES",
+              "label": "Yes"
+            },
+            {
+              "value": "NO",
+              "label": "No"
+            },
+            {
+              "value": "SOMETIMES",
+              "label": "Sometimes"
+            },
+            {
+              "value": "NOT_SURE",
+              "label": "Not sure"
+            }
+          ],
+          "risk_by_value": {
+            "YES": 4,
+            "NO": 0,
+            "SOMETIMES": 2,
+            "NOT_SURE": 1
+          },
+          "max_points": 4,
+          "finding_title": "Travel plans may be visible in advance",
+          "recommendation": "Avoid publicly announcing travel timing; share plans only with trusted people.",
+          "priority": "IMPORTANT"
+        },
+        {
+          "id": "vacation_posts_real_time",
+          "category": "location",
+          "prompt": "Do you post vacation or away-from-home updates in real time?",
+          "help": "Posting after leaving a location can reduce immediate exposure, though context still matters.",
+          "options": [
+            {
+              "value": "YES",
+              "label": "Yes"
+            },
+            {
+              "value": "NO",
+              "label": "No"
+            },
+            {
+              "value": "SOMETIMES",
+              "label": "Sometimes"
+            },
+            {
+              "value": "NOT_SURE",
+              "label": "Not sure"
+            }
+          ],
+          "risk_by_value": {
+            "YES": 4,
+            "NO": 0,
+            "SOMETIMES": 2,
+            "NOT_SURE": 1
+          },
+          "max_points": 4,
+          "finding_title": "Real-time trip updates may reveal absence",
+          "recommendation": "Consider delaying trip photos until after leaving and keep the audience intentional.",
+          "priority": "IMPORTANT"
+        },
+        {
+          "id": "location_patterns_public",
+          "category": "location",
+          "prompt": "Could repeated public posts reveal a regular route or schedule?",
+          "help": "Think about recurring places and times; do not list locations or routines here.",
+          "options": [
+            {
+              "value": "YES",
+              "label": "Yes"
+            },
+            {
+              "value": "NO",
+              "label": "No"
+            },
+            {
+              "value": "SOMETIMES",
+              "label": "Sometimes"
+            },
+            {
+              "value": "NOT_SURE",
+              "label": "Not sure"
+            }
+          ],
+          "risk_by_value": {
+            "YES": 4,
+            "NO": 0,
+            "SOMETIMES": 2,
+            "NOT_SURE": 1
+          },
+          "max_points": 4,
+          "finding_title": "Repeated location patterns may be inferred",
+          "recommendation": "Avoid publishing recurring time-and-place patterns; review older posts for repeated clues.",
+          "priority": "IMPORTANT"
+        }
+      ]
+    },
+    {
+      "key": "content",
+      "label": "Posts and content",
+      "short": "Content",
+      "weight": 10,
+      "description": "Audience controls and clues inside shared photos or posts.",
+      "questions": [
+        {
+          "id": "posts_public",
+          "category": "content",
+          "prompt": "Are many of your posts visible to anyone?",
+          "help": "This is about the default or common audience, not one intentionally public post.",
+          "options": [
+            {
+              "value": "YES",
+              "label": "Yes"
+            },
+            {
+              "value": "NO",
+              "label": "No"
+            },
+            {
+              "value": "SOMETIMES",
+              "label": "Sometimes"
+            },
+            {
+              "value": "NOT_SURE",
+              "label": "Not sure"
+            }
+          ],
+          "risk_by_value": {
+            "YES": 4,
+            "NO": 0,
+            "SOMETIMES": 2,
+            "NOT_SURE": 1
+          },
+          "max_points": 4,
+          "finding_title": "Many posts are public",
+          "recommendation": "Use audience controls and review the visibility of older posts.",
+          "priority": "IMPORTANT"
+        },
+        {
+          "id": "photo_context_public",
+          "category": "content",
+          "prompt": "Could public photos reveal identifying context you did not intend to share?",
+          "help": "Examples include documents, screens, badges, vehicle identifiers, or distinctive surroundings.",
+          "options": [
+            {
+              "value": "YES",
+              "label": "Yes"
+            },
+            {
+              "value": "NO",
+              "label": "No"
+            },
+            {
+              "value": "SOMETIMES",
+              "label": "Sometimes"
+            },
+            {
+              "value": "NOT_SURE",
+              "label": "Not sure"
+            }
+          ],
+          "risk_by_value": {
+            "YES": 4,
+            "NO": 0,
+            "SOMETIMES": 2,
+            "NOT_SURE": 1
+          },
+          "max_points": 4,
+          "finding_title": "Photo context may reveal extra information",
+          "recommendation": "Check the frame before posting; crop, blur, or omit identifying details.",
+          "priority": "IMPORTANT"
+        },
+        {
+          "id": "child_or_family_media_public",
+          "category": "content",
+          "prompt": "Do public photos or videos include identifiable family members or children?",
+          "help": "No images are uploaded or analyzed. Consider consent and the person's ability to choose later.",
+          "options": [
+            {
+              "value": "YES",
+              "label": "Yes"
+            },
+            {
+              "value": "NO",
+              "label": "No"
+            },
+            {
+              "value": "SOMETIMES",
+              "label": "Sometimes"
+            },
+            {
+              "value": "NOT_SURE",
+              "label": "Not sure"
+            }
+          ],
+          "risk_by_value": {
+            "YES": 4,
+            "NO": 0,
+            "SOMETIMES": 2,
+            "NOT_SURE": 1
+          },
+          "max_points": 4,
+          "finding_title": "Family imagery may be broadly exposed",
+          "recommendation": "Limit the audience, avoid identifying details, and obtain appropriate consent before sharing.",
+          "priority": "IMPORTANT"
+        },
+        {
+          "id": "routine_content_public",
+          "category": "content",
+          "prompt": "Do public captions or posts describe regular routines?",
+          "help": "Do not provide the routine. This checks whether a recurring pattern is shared publicly.",
+          "options": [
+            {
+              "value": "YES",
+              "label": "Yes"
+            },
+            {
+              "value": "NO",
+              "label": "No"
+            },
+            {
+              "value": "SOMETIMES",
+              "label": "Sometimes"
+            },
+            {
+              "value": "NOT_SURE",
+              "label": "Not sure"
+            }
+          ],
+          "risk_by_value": {
+            "YES": 4,
+            "NO": 0,
+            "SOMETIMES": 2,
+            "NOT_SURE": 1
+          },
+          "max_points": 4,
+          "finding_title": "Routine details may be exposed",
+          "recommendation": "Keep recurring schedules and route details out of public posts.",
+          "priority": "IMPORTANT"
+        },
+        {
+          "id": "screen_documents_visible",
+          "category": "content",
+          "prompt": "Have public photos included readable documents, screens, badges, or access details?",
+          "help": "Answer about past or typical content only; do not attach the material.",
+          "options": [
+            {
+              "value": "YES",
+              "label": "Yes"
+            },
+            {
+              "value": "NO",
+              "label": "No"
+            },
+            {
+              "value": "SOMETIMES",
+              "label": "Sometimes"
+            },
+            {
+              "value": "NOT_SURE",
+              "label": "Not sure"
+            }
+          ],
+          "risk_by_value": {
+            "YES": 4,
+            "NO": 0,
+            "SOMETIMES": 2,
+            "NOT_SURE": 1
+          },
+          "max_points": 4,
+          "finding_title": "Documents or access clues may appear in photos",
+          "recommendation": "Review images at full size before sharing and remove or obscure sensitive details.",
+          "priority": "IMPORTANT"
+        },
+        {
+          "id": "photo_metadata_reviewed",
+          "category": "content",
+          "prompt": "Do you check whether photos contain location or other metadata before sharing?",
+          "help": "Some image files can contain EXIF fields such as device details or coordinates. Many services remove some metadata, but not all.",
+          "options": [
+            {
+              "value": "YES",
+              "label": "Yes"
+            },
+            {
+              "value": "NO",
+              "label": "No"
+            },
+            {
+              "value": "SOMETIMES",
+              "label": "Sometimes"
+            },
+            {
+              "value": "NOT_SURE",
+              "label": "Not sure"
+            }
+          ],
+          "risk_by_value": {
+            "YES": 0,
+            "NO": 4,
+            "SOMETIMES": 2,
+            "NOT_SURE": 1
+          },
+          "max_points": 4,
+          "finding_title": "Photo metadata is not regularly reviewed",
+          "recommendation": "Check local photo metadata settings and remove unnecessary metadata from a copy before sharing.",
+          "priority": "IMPORTANT"
+        }
+      ]
+    },
+    {
+      "key": "connections",
+      "label": "Friends and followers",
+      "short": "Connections",
+      "weight": 10,
+      "description": "How connection requests and social-graph visibility are handled.",
+      "questions": [
+        {
+          "id": "accept_unknown_connections",
+          "category": "connections",
+          "prompt": "How often do you accept connection requests from people you do not recognize?",
+          "help": "Use your general habit; the tool does not identify or look up anyone.",
+          "options": [
+            {
+              "value": "NEVER",
+              "label": "Never"
+            },
+            {
+              "value": "RARELY",
+              "label": "Rarely"
+            },
+            {
+              "value": "SOMETIMES",
+              "label": "Sometimes"
+            },
+            {
+              "value": "OFTEN",
+              "label": "Often"
+            },
+            {
+              "value": "NOT_SURE",
+              "label": "Not sure"
+            }
+          ],
+          "risk_by_value": {
+            "NEVER": 0,
+            "RARELY": 1,
+            "SOMETIMES": 2,
+            "OFTEN": 4,
+            "NOT_SURE": 1
+          },
+          "max_points": 4,
+          "finding_title": "Unfamiliar requests are accepted",
+          "recommendation": "Verify unfamiliar requests through a trusted channel and decline unexpected requests.",
+          "priority": "IMPORTANT"
+        },
+        {
+          "id": "connections_visible",
+          "category": "connections",
+          "prompt": "Can anyone see your friends or connections list?",
+          "help": "A visible list may reveal social relationships and affiliations.",
+          "options": [
+            {
+              "value": "YES",
+              "label": "Yes"
+            },
+            {
+              "value": "NO",
+              "label": "No"
+            },
+            {
+              "value": "SOMETIMES",
+              "label": "Sometimes"
+            },
+            {
+              "value": "NOT_SURE",
+              "label": "Not sure"
+            }
+          ],
+          "risk_by_value": {
+            "YES": 4,
+            "NO": 0,
+            "SOMETIMES": 2,
+            "NOT_SURE": 1
+          },
+          "max_points": 4,
+          "finding_title": "Connections list is visible",
+          "recommendation": "Limit the audience for your connections list where available.",
+          "priority": "IMPORTANT"
+        },
+        {
+          "id": "follow_without_approval",
+          "category": "connections",
+          "prompt": "Can unfamiliar accounts follow or connect without your approval?",
+          "help": "Think about the account's current follow or connection control.",
+          "options": [
+            {
+              "value": "YES",
+              "label": "Yes"
+            },
+            {
+              "value": "NO",
+              "label": "No"
+            },
+            {
+              "value": "SOMETIMES",
+              "label": "Sometimes"
+            },
+            {
+              "value": "NOT_SURE",
+              "label": "Not sure"
+            }
+          ],
+          "risk_by_value": {
+            "YES": 4,
+            "NO": 0,
+            "SOMETIMES": 2,
+            "NOT_SURE": 1
+          },
+          "max_points": 4,
+          "finding_title": "Following does not require approval",
+          "recommendation": "Use approval controls for followers or connections if they fit your needs.",
+          "priority": "IMPORTANT"
+        },
+        {
+          "id": "unknown_requests_reviewed",
+          "category": "connections",
+          "prompt": "Do you verify an unfamiliar request before accepting it?",
+          "help": "Verification can mean checking through a known, separate route rather than trusting the request itself.",
+          "options": [
+            {
+              "value": "YES",
+              "label": "Yes"
+            },
+            {
+              "value": "NO",
+              "label": "No"
+            },
+            {
+              "value": "SOMETIMES",
+              "label": "Sometimes"
+            },
+            {
+              "value": "NOT_SURE",
+              "label": "Not sure"
+            }
+          ],
+          "risk_by_value": {
+            "YES": 0,
+            "NO": 4,
+            "SOMETIMES": 2,
+            "NOT_SURE": 1
+          },
+          "max_points": 4,
+          "finding_title": "Unfamiliar requests are not consistently verified",
+          "recommendation": "Verify identity using a trusted contact method before accepting an unexpected request.",
+          "priority": "IMPORTANT"
+        },
+        {
+          "id": "connection_list_reviewed",
+          "category": "connections",
+          "prompt": "Do you periodically review your followers or connections?",
+          "help": "A periodic review helps remove connections you no longer recognize or need.",
+          "options": [
+            {
+              "value": "YES",
+              "label": "Yes"
+            },
+            {
+              "value": "NO",
+              "label": "No"
+            },
+            {
+              "value": "SOMETIMES",
+              "label": "Sometimes"
+            },
+            {
+              "value": "NOT_SURE",
+              "label": "Not sure"
+            }
+          ],
+          "risk_by_value": {
+            "YES": 0,
+            "NO": 4,
+            "SOMETIMES": 2,
+            "NOT_SURE": 1
+          },
+          "max_points": 4,
+          "finding_title": "Connection lists are not regularly reviewed",
+          "recommendation": "Review followers and connections periodically and remove access that is no longer appropriate.",
+          "priority": "IMPORTANT"
+        }
+      ]
+    },
+    {
+      "key": "tagging",
+      "label": "Tagging and mentions",
+      "short": "Tagging",
+      "weight": 5,
+      "description": "Whether other people can expose you through tags or mentions.",
+      "questions": [
+        {
+          "id": "can_anyone_tag",
+          "category": "tagging",
+          "prompt": "Can anyone tag you in a post or photo without your approval?",
+          "help": "Another person's post can reveal context even if you rarely post yourself.",
+          "options": [
+            {
+              "value": "YES",
+              "label": "Yes"
+            },
+            {
+              "value": "NO",
+              "label": "No"
+            },
+            {
+              "value": "SOMETIMES",
+              "label": "Sometimes"
+            },
+            {
+              "value": "NOT_SURE",
+              "label": "Not sure"
+            }
+          ],
+          "risk_by_value": {
+            "YES": 4,
+            "NO": 0,
+            "SOMETIMES": 2,
+            "NOT_SURE": 1
+          },
+          "max_points": 4,
+          "finding_title": "Open tagging may expose you",
+          "recommendation": "Restrict who can tag you and use approval controls where available.",
+          "priority": "IMPORTANT"
+        },
+        {
+          "id": "tag_review_enabled",
+          "category": "tagging",
+          "prompt": "Is review required before tagged posts appear on your profile?",
+          "help": "This setting may be called tag review, timeline review, or mention approval.",
+          "options": [
+            {
+              "value": "YES",
+              "label": "Yes"
+            },
+            {
+              "value": "NO",
+              "label": "No"
+            },
+            {
+              "value": "SOMETIMES",
+              "label": "Sometimes"
+            },
+            {
+              "value": "NOT_SURE",
+              "label": "Not sure"
+            }
+          ],
+          "risk_by_value": {
+            "YES": 0,
+            "NO": 4,
+            "SOMETIMES": 2,
+            "NOT_SURE": 1
+          },
+          "max_points": 4,
+          "finding_title": "Tag review is not enabled",
+          "recommendation": "Enable review before tagged content appears on your profile.",
+          "priority": "IMPORTANT"
+        },
+        {
+          "id": "tagged_posts_auto_visible",
+          "category": "tagging",
+          "prompt": "Can tagged posts appear automatically to a broad audience?",
+          "help": "Check the audience for posts made by other people that include your tag.",
+          "options": [
+            {
+              "value": "YES",
+              "label": "Yes"
+            },
+            {
+              "value": "NO",
+              "label": "No"
+            },
+            {
+              "value": "SOMETIMES",
+              "label": "Sometimes"
+            },
+            {
+              "value": "NOT_SURE",
+              "label": "Not sure"
+            }
+          ],
+          "risk_by_value": {
+            "YES": 4,
+            "NO": 0,
+            "SOMETIMES": 2,
+            "NOT_SURE": 1
+          },
+          "max_points": 4,
+          "finding_title": "Tagged posts may appear automatically",
+          "recommendation": "Limit the audience for tagged posts and review them before they appear.",
+          "priority": "IMPORTANT"
+        },
+        {
+          "id": "unknown_mentions_allowed",
+          "category": "tagging",
+          "prompt": "Can people you do not know mention your account publicly?",
+          "help": "Consider mention controls and filters, not any particular person.",
+          "options": [
+            {
+              "value": "YES",
+              "label": "Yes"
+            },
+            {
+              "value": "NO",
+              "label": "No"
+            },
+            {
+              "value": "SOMETIMES",
+              "label": "Sometimes"
+            },
+            {
+              "value": "NOT_SURE",
+              "label": "Not sure"
+            }
+          ],
+          "risk_by_value": {
+            "YES": 4,
+            "NO": 0,
+            "SOMETIMES": 2,
+            "NOT_SURE": 1
+          },
+          "max_points": 4,
+          "finding_title": "Unknown accounts can mention you",
+          "recommendation": "Restrict mentions or notifications from unfamiliar accounts where possible.",
+          "priority": "IMPORTANT"
+        }
+      ]
+    },
+    {
+      "key": "account_security",
+      "label": "Account security",
+      "short": "Account security",
+      "weight": 15,
+      "description": "Authentication, recovery, session, and device-review habits.",
+      "questions": [
+        {
+          "id": "mfa_enabled",
+          "category": "account_security",
+          "prompt": "Is multi-factor authentication enabled?",
+          "help": "Use the strongest supported method available. Never share a one-time code in this assessment.",
+          "options": [
+            {
+              "value": "YES",
+              "label": "Yes"
+            },
+            {
+              "value": "NO",
+              "label": "No"
+            },
+            {
+              "value": "SOMETIMES",
+              "label": "Sometimes"
+            },
+            {
+              "value": "NOT_SURE",
+              "label": "Not sure"
+            }
+          ],
+          "risk_by_value": {
+            "YES": 0,
+            "NO": 4,
+            "SOMETIMES": 2,
+            "NOT_SURE": 1
+          },
+          "max_points": 4,
+          "finding_title": "Multi-factor authentication is not confirmed",
+          "recommendation": "Enable MFA using a strong supported method and store recovery codes safely.",
+          "priority": "IMMEDIATE"
+        },
+        {
+          "id": "unique_passwords",
+          "category": "account_security",
+          "prompt": "Do you use a unique password for each social account?",
+          "help": "Do not enter or describe any password.",
+          "options": [
+            {
+              "value": "YES",
+              "label": "Yes"
+            },
+            {
+              "value": "NO",
+              "label": "No"
+            },
+            {
+              "value": "SOMETIMES",
+              "label": "Sometimes"
+            },
+            {
+              "value": "NOT_SURE",
+              "label": "Not sure"
+            }
+          ],
+          "risk_by_value": {
+            "YES": 0,
+            "NO": 4,
+            "SOMETIMES": 2,
+            "NOT_SURE": 1
+          },
+          "max_points": 4,
+          "finding_title": "Password uniqueness is not confirmed",
+          "recommendation": "Use a unique password for each account; a reputable password manager can help.",
+          "priority": "IMPORTANT"
+        },
+        {
+          "id": "password_reuse_reported",
+          "category": "account_security",
+          "prompt": "Do you reuse a password across multiple accounts?",
+          "help": "Do not type a password. A yes answer indicates reuse awareness only.",
+          "options": [
+            {
+              "value": "YES",
+              "label": "Yes"
+            },
+            {
+              "value": "NO",
+              "label": "No"
+            },
+            {
+              "value": "SOMETIMES",
+              "label": "Sometimes"
+            },
+            {
+              "value": "NOT_SURE",
+              "label": "Not sure"
+            }
+          ],
+          "risk_by_value": {
+            "YES": 4,
+            "NO": 0,
+            "SOMETIMES": 2,
+            "NOT_SURE": 1
+          },
+          "max_points": 4,
+          "finding_title": "Password reuse can increase account-takeover impact",
+          "recommendation": "Change reused passwords to unique ones and enable MFA on important accounts.",
+          "priority": "IMMEDIATE"
+        },
+        {
+          "id": "password_manager_used",
+          "category": "account_security",
+          "prompt": "Do you use a password manager or another reliable method to manage unique passwords?",
+          "help": "This asks about your practice, not which product or any credential.",
+          "options": [
+            {
+              "value": "YES",
+              "label": "Yes"
+            },
+            {
+              "value": "NO",
+              "label": "No"
+            },
+            {
+              "value": "SOMETIMES",
+              "label": "Sometimes"
+            },
+            {
+              "value": "NOT_SURE",
+              "label": "Not sure"
+            }
+          ],
+          "risk_by_value": {
+            "YES": 0,
+            "NO": 4,
+            "SOMETIMES": 2,
+            "NOT_SURE": 1
+          },
+          "max_points": 4,
+          "finding_title": "A password-management method is not confirmed",
+          "recommendation": "Consider a reputable password manager to support unique, strong passwords.",
+          "priority": "IMPORTANT"
+        },
+        {
+          "id": "login_alerts_enabled",
+          "category": "account_security",
+          "prompt": "Are login or new-device alerts enabled where available?",
+          "help": "Alerts can help you notice sign-ins that need review.",
+          "options": [
+            {
+              "value": "YES",
+              "label": "Yes"
+            },
+            {
+              "value": "NO",
+              "label": "No"
+            },
+            {
+              "value": "SOMETIMES",
+              "label": "Sometimes"
+            },
+            {
+              "value": "NOT_SURE",
+              "label": "Not sure"
+            }
+          ],
+          "risk_by_value": {
+            "YES": 0,
+            "NO": 4,
+            "SOMETIMES": 2,
+            "NOT_SURE": 1
+          },
+          "max_points": 4,
+          "finding_title": "Login alerts are not enabled",
+          "recommendation": "Enable sign-in and new-device alerts where the service offers them.",
+          "priority": "IMPORTANT"
+        },
+        {
+          "id": "recovery_info_reviewed",
+          "category": "account_security",
+          "prompt": "Have you reviewed account recovery options recently?",
+          "help": "Do not enter recovery email addresses, phone numbers, or codes.",
+          "options": [
+            {
+              "value": "YES",
+              "label": "Yes"
+            },
+            {
+              "value": "NO",
+              "label": "No"
+            },
+            {
+              "value": "SOMETIMES",
+              "label": "Sometimes"
+            },
+            {
+              "value": "NOT_SURE",
+              "label": "Not sure"
+            }
+          ],
+          "risk_by_value": {
+            "YES": 0,
+            "NO": 4,
+            "SOMETIMES": 2,
+            "NOT_SURE": 1
+          },
+          "max_points": 4,
+          "finding_title": "Recovery options may be out of date",
+          "recommendation": "Review recovery options and make sure they are controlled by you.",
+          "priority": "IMPORTANT"
+        },
+        {
+          "id": "active_sessions_reviewed",
+          "category": "account_security",
+          "prompt": "Do you periodically review active sessions and sign out devices you no longer use?",
+          "help": "The assessment does not access session data or identify devices.",
+          "options": [
+            {
+              "value": "YES",
+              "label": "Yes"
+            },
+            {
+              "value": "NO",
+              "label": "No"
+            },
+            {
+              "value": "SOMETIMES",
+              "label": "Sometimes"
+            },
+            {
+              "value": "NOT_SURE",
+              "label": "Not sure"
+            }
+          ],
+          "risk_by_value": {
+            "YES": 0,
+            "NO": 4,
+            "SOMETIMES": 2,
+            "NOT_SURE": 1
+          },
+          "max_points": 4,
+          "finding_title": "Active sessions are not regularly reviewed",
+          "recommendation": "Review active sessions in the service's own settings and sign out sessions you do not recognize.",
+          "priority": "IMPORTANT"
+        },
+        {
+          "id": "unknown_devices_checked",
+          "category": "account_security",
+          "prompt": "Do you check for unfamiliar devices or sign-ins when reviewing account security?",
+          "help": "This is a self-reported habit only; no device telemetry is collected.",
+          "options": [
+            {
+              "value": "YES",
+              "label": "Yes"
+            },
+            {
+              "value": "NO",
+              "label": "No"
+            },
+            {
+              "value": "SOMETIMES",
+              "label": "Sometimes"
+            },
+            {
+              "value": "NOT_SURE",
+              "label": "Not sure"
+            }
+          ],
+          "risk_by_value": {
+            "YES": 0,
+            "NO": 4,
+            "SOMETIMES": 2,
+            "NOT_SURE": 1
+          },
+          "max_points": 4,
+          "finding_title": "Unfamiliar-device checks are not routine",
+          "recommendation": "Review security activity using the platform's official account-security page.",
+          "priority": "IMPORTANT"
+        }
+      ]
+    },
+    {
+      "key": "third_party",
+      "label": "Third-party applications",
+      "short": "Third-party apps",
+      "weight": 5,
+      "description": "Review of connected apps and the permissions they hold.",
+      "questions": [
+        {
+          "id": "third_party_apps_reviewed",
+          "category": "third_party",
+          "prompt": "Do you regularly review applications connected to your social account?",
+          "help": "The tool does not query your account or list any integrations.",
+          "options": [
+            {
+              "value": "YES",
+              "label": "Yes"
+            },
+            {
+              "value": "NO",
+              "label": "No"
+            },
+            {
+              "value": "SOMETIMES",
+              "label": "Sometimes"
+            },
+            {
+              "value": "NOT_SURE",
+              "label": "Not sure"
+            }
+          ],
+          "risk_by_value": {
+            "YES": 0,
+            "NO": 4,
+            "SOMETIMES": 2,
+            "NOT_SURE": 1
+          },
+          "max_points": 4,
+          "finding_title": "Connected apps are not regularly reviewed",
+          "recommendation": "Review connected apps and revoke access you no longer need.",
+          "priority": "IMPORTANT"
+        },
+        {
+          "id": "unused_apps_present",
+          "category": "third_party",
+          "prompt": "Do you believe unused or unfamiliar integrations may still be connected?",
+          "help": "Do not name the applications. Check only through the platform's own settings if you choose.",
+          "options": [
+            {
+              "value": "YES",
+              "label": "Yes"
+            },
+            {
+              "value": "NO",
+              "label": "No"
+            },
+            {
+              "value": "SOMETIMES",
+              "label": "Sometimes"
+            },
+            {
+              "value": "NOT_SURE",
+              "label": "Not sure"
+            }
+          ],
+          "risk_by_value": {
+            "YES": 4,
+            "NO": 0,
+            "SOMETIMES": 2,
+            "NOT_SURE": 1
+          },
+          "max_points": 4,
+          "finding_title": "Unused integrations may retain access",
+          "recommendation": "Remove unused integrations and review the permissions of the remaining apps.",
+          "priority": "IMPORTANT"
+        },
+        {
+          "id": "permission_scope_minimized",
+          "category": "third_party",
+          "prompt": "Do connected apps receive only the permissions they need?",
+          "help": "This is the principle of least privilege applied to account integrations.",
+          "options": [
+            {
+              "value": "YES",
+              "label": "Yes"
+            },
+            {
+              "value": "NO",
+              "label": "No"
+            },
+            {
+              "value": "SOMETIMES",
+              "label": "Sometimes"
+            },
+            {
+              "value": "NOT_SURE",
+              "label": "Not sure"
+            }
+          ],
+          "risk_by_value": {
+            "YES": 0,
+            "NO": 4,
+            "SOMETIMES": 2,
+            "NOT_SURE": 1
+          },
+          "max_points": 4,
+          "finding_title": "App permissions may be broader than necessary",
+          "recommendation": "Choose the narrowest permissions that still support a legitimate purpose.",
+          "priority": "IMPORTANT"
+        },
+        {
+          "id": "social_login_connections_reviewed",
+          "category": "third_party",
+          "prompt": "Do you review services that use your social account for sign-in?",
+          "help": "Review links through your account's own settings; no external check is performed.",
+          "options": [
+            {
+              "value": "YES",
+              "label": "Yes"
+            },
+            {
+              "value": "NO",
+              "label": "No"
+            },
+            {
+              "value": "SOMETIMES",
+              "label": "Sometimes"
+            },
+            {
+              "value": "NOT_SURE",
+              "label": "Not sure"
+            }
+          ],
+          "risk_by_value": {
+            "YES": 0,
+            "NO": 4,
+            "SOMETIMES": 2,
+            "NOT_SURE": 1
+          },
+          "max_points": 4,
+          "finding_title": "Social sign-in links are not regularly reviewed",
+          "recommendation": "Review social sign-in connections and remove ones you no longer use.",
+          "priority": "IMPORTANT"
+        }
+      ]
+    },
+    {
+      "key": "social_engineering",
+      "label": "Social engineering",
+      "short": "Social engineering",
+      "weight": 10,
+      "description": "Habits that help resist deceptive messages and requests.",
+      "questions": [
+        {
+          "id": "responds_to_unverified_dm",
+          "category": "social_engineering",
+          "prompt": "How often do you respond to unexpected direct messages before verifying who sent them?",
+          "help": "This asks about a habit, not the content of any private message.",
+          "options": [
+            {
+              "value": "NEVER",
+              "label": "Never"
+            },
+            {
+              "value": "RARELY",
+              "label": "Rarely"
+            },
+            {
+              "value": "SOMETIMES",
+              "label": "Sometimes"
+            },
+            {
+              "value": "OFTEN",
+              "label": "Often"
+            },
+            {
+              "value": "NOT_SURE",
+              "label": "Not sure"
+            }
+          ],
+          "risk_by_value": {
+            "NEVER": 0,
+            "RARELY": 1,
+            "SOMETIMES": 2,
+            "OFTEN": 4,
+            "NOT_SURE": 1
+          },
+          "max_points": 4,
+          "finding_title": "Unexpected messages are engaged with before verification",
+          "recommendation": "Pause and verify unexpected requests through a trusted, separate channel.",
+          "priority": "IMPORTANT"
+        },
+        {
+          "id": "clicks_unexpected_links",
+          "category": "social_engineering",
+          "prompt": "How often do you open links in unexpected messages without checking them first?",
+          "help": "Do not paste or upload links or message text.",
+          "options": [
+            {
+              "value": "NEVER",
+              "label": "Never"
+            },
+            {
+              "value": "RARELY",
+              "label": "Rarely"
+            },
+            {
+              "value": "SOMETIMES",
+              "label": "Sometimes"
+            },
+            {
+              "value": "OFTEN",
+              "label": "Often"
+            },
+            {
+              "value": "NOT_SURE",
+              "label": "Not sure"
+            }
+          ],
+          "risk_by_value": {
+            "NEVER": 0,
+            "RARELY": 1,
+            "SOMETIMES": 2,
+            "OFTEN": 4,
+            "NOT_SURE": 1
+          },
+          "max_points": 4,
+          "finding_title": "Unexpected links are opened without enough checking",
+          "recommendation": "Avoid opening unexpected links; navigate to the service directly and verify the sender.",
+          "priority": "IMPORTANT"
+        },
+        {
+          "id": "shares_verification_codes",
+          "category": "social_engineering",
+          "prompt": "Have you ever shared a verification code or one-time passcode with someone who contacted you?",
+          "help": "No code is requested. Legitimate support should not ask you to relay a sign-in code.",
+          "options": [
+            {
+              "value": "YES",
+              "label": "Yes"
+            },
+            {
+              "value": "NO",
+              "label": "No"
+            },
+            {
+              "value": "SOMETIMES",
+              "label": "Sometimes"
+            },
+            {
+              "value": "NOT_SURE",
+              "label": "Not sure"
+            }
+          ],
+          "risk_by_value": {
+            "YES": 4,
+            "NO": 0,
+            "SOMETIMES": 2,
+            "NOT_SURE": 1
+          },
+          "max_points": 4,
+          "finding_title": "Verification codes should never be shared",
+          "recommendation": "Never share one-time codes or recovery codes. If one was shared, secure the account immediately.",
+          "priority": "IMMEDIATE"
+        },
+        {
+          "id": "shares_personal_details_in_dm",
+          "category": "social_engineering",
+          "prompt": "Do you share personal details in messages before confirming the recipient?",
+          "help": "No details or message contents are collected.",
+          "options": [
+            {
+              "value": "YES",
+              "label": "Yes"
+            },
+            {
+              "value": "NO",
+              "label": "No"
+            },
+            {
+              "value": "SOMETIMES",
+              "label": "Sometimes"
+            },
+            {
+              "value": "NOT_SURE",
+              "label": "Not sure"
+            }
+          ],
+          "risk_by_value": {
+            "YES": 4,
+            "NO": 0,
+            "SOMETIMES": 2,
+            "NOT_SURE": 1
+          },
+          "max_points": 4,
+          "finding_title": "Personal details may be shared before verification",
+          "recommendation": "Verify the recipient and purpose before sharing personal information in a message.",
+          "priority": "IMPORTANT"
+        },
+        {
+          "id": "verifies_identity_before_trust",
+          "category": "social_engineering",
+          "prompt": "Do you verify identity using a trusted method before acting on an urgent request?",
+          "help": "A known phone number or a separate official channel is safer than replying to the request itself.",
+          "options": [
+            {
+              "value": "YES",
+              "label": "Yes"
+            },
+            {
+              "value": "NO",
+              "label": "No"
+            },
+            {
+              "value": "SOMETIMES",
+              "label": "Sometimes"
+            },
+            {
+              "value": "NOT_SURE",
+              "label": "Not sure"
+            }
+          ],
+          "risk_by_value": {
+            "YES": 0,
+            "NO": 4,
+            "SOMETIMES": 2,
+            "NOT_SURE": 1
+          },
+          "max_points": 4,
+          "finding_title": "Urgent requests may not be independently verified",
+          "recommendation": "Pause, verify through a known channel, and never act on pressure alone.",
+          "priority": "IMPORTANT"
+        },
+        {
+          "id": "suspicious_giveaways_engaged",
+          "category": "social_engineering",
+          "prompt": "How often do you engage with unexpected giveaways or offers that request information?",
+          "help": "No offer, account, or personal details are collected.",
+          "options": [
+            {
+              "value": "NEVER",
+              "label": "Never"
+            },
+            {
+              "value": "RARELY",
+              "label": "Rarely"
+            },
+            {
+              "value": "SOMETIMES",
+              "label": "Sometimes"
+            },
+            {
+              "value": "OFTEN",
+              "label": "Often"
+            },
+            {
+              "value": "NOT_SURE",
+              "label": "Not sure"
+            }
+          ],
+          "risk_by_value": {
+            "NEVER": 0,
+            "RARELY": 1,
+            "SOMETIMES": 2,
+            "OFTEN": 4,
+            "NOT_SURE": 1
+          },
+          "max_points": 4,
+          "finding_title": "Unexpected offers may invite unnecessary disclosure",
+          "recommendation": "Check offers through official channels and avoid sharing credentials or sensitive details.",
+          "priority": "IMPORTANT"
+        }
+      ]
+    },
+    {
+      "key": "digital_footprint",
+      "label": "Digital footprint",
+      "short": "Digital footprint",
+      "weight": 5,
+      "description": "How regularly older content, accounts, and settings are revisited.",
+      "questions": [
+        {
+          "id": "old_posts_reviewed",
+          "category": "digital_footprint",
+          "prompt": "Do you periodically review older posts and change the audience or remove what is no longer appropriate?",
+          "help": "Older posts can remain visible after your current habits or audience have changed.",
+          "options": [
+            {
+              "value": "YES",
+              "label": "Yes"
+            },
+            {
+              "value": "NO",
+              "label": "No"
+            },
+            {
+              "value": "SOMETIMES",
+              "label": "Sometimes"
+            },
+            {
+              "value": "NOT_SURE",
+              "label": "Not sure"
+            }
+          ],
+          "risk_by_value": {
+            "YES": 0,
+            "NO": 4,
+            "SOMETIMES": 2,
+            "NOT_SURE": 1
+          },
+          "max_points": 4,
+          "finding_title": "Older posts are not regularly reviewed",
+          "recommendation": "Review older public posts and update audiences that no longer fit.",
+          "priority": "IMPORTANT"
+        },
+        {
+          "id": "unused_accounts_reviewed",
+          "category": "digital_footprint",
+          "prompt": "Do you review or close social accounts you no longer use?",
+          "help": "The tool does not search for accounts or ask for usernames.",
+          "options": [
+            {
+              "value": "YES",
+              "label": "Yes"
+            },
+            {
+              "value": "NO",
+              "label": "No"
+            },
+            {
+              "value": "SOMETIMES",
+              "label": "Sometimes"
+            },
+            {
+              "value": "NOT_SURE",
+              "label": "Not sure"
+            }
+          ],
+          "risk_by_value": {
+            "YES": 0,
+            "NO": 4,
+            "SOMETIMES": 2,
+            "NOT_SURE": 1
+          },
+          "max_points": 4,
+          "finding_title": "Unused accounts may be forgotten",
+          "recommendation": "Close or secure accounts you no longer use and remove unnecessary profile details.",
+          "priority": "IMPORTANT"
+        },
+        {
+          "id": "old_public_comments_reviewed",
+          "category": "digital_footprint",
+          "prompt": "Do you revisit older public comments or replies?",
+          "help": "This is a self-reported review habit; no comments are collected.",
+          "options": [
+            {
+              "value": "YES",
+              "label": "Yes"
+            },
+            {
+              "value": "NO",
+              "label": "No"
+            },
+            {
+              "value": "SOMETIMES",
+              "label": "Sometimes"
+            },
+            {
+              "value": "NOT_SURE",
+              "label": "Not sure"
+            }
+          ],
+          "risk_by_value": {
+            "YES": 0,
+            "NO": 4,
+            "SOMETIMES": 2,
+            "NOT_SURE": 1
+          },
+          "max_points": 4,
+          "finding_title": "Older public comments are not revisited",
+          "recommendation": "Review old public comments and remove or limit visibility where appropriate.",
+          "priority": "IMPORTANT"
+        },
+        {
+          "id": "profile_history_reviewed",
+          "category": "digital_footprint",
+          "prompt": "Do you review older profile details, biography text, or profile photos?",
+          "help": "Do not paste any profile text or upload photos.",
+          "options": [
+            {
+              "value": "YES",
+              "label": "Yes"
+            },
+            {
+              "value": "NO",
+              "label": "No"
+            },
+            {
+              "value": "SOMETIMES",
+              "label": "Sometimes"
+            },
+            {
+              "value": "NOT_SURE",
+              "label": "Not sure"
+            }
+          ],
+          "risk_by_value": {
+            "YES": 0,
+            "NO": 4,
+            "SOMETIMES": 2,
+            "NOT_SURE": 1
+          },
+          "max_points": 4,
+          "finding_title": "Profile history is not regularly reviewed",
+          "recommendation": "Revisit old profile details and profile images for information you no longer want public.",
+          "priority": "IMPORTANT"
+        },
+        {
+          "id": "privacy_settings_reviewed",
+          "category": "digital_footprint",
+          "prompt": "Have you reviewed your privacy settings in the last six months?",
+          "help": "Platform settings change over time; a periodic review is useful.",
+          "options": [
+            {
+              "value": "YES",
+              "label": "Yes"
+            },
+            {
+              "value": "NO",
+              "label": "No"
+            },
+            {
+              "value": "SOMETIMES",
+              "label": "Sometimes"
+            },
+            {
+              "value": "NOT_SURE",
+              "label": "Not sure"
+            }
+          ],
+          "risk_by_value": {
+            "YES": 0,
+            "NO": 4,
+            "SOMETIMES": 2,
+            "NOT_SURE": 1
+          },
+          "max_points": 4,
+          "finding_title": "Privacy settings have not been reviewed recently",
+          "recommendation": "Schedule a recurring settings review, especially after platform changes.",
+          "priority": "IMPORTANT"
+        }
+      ]
+    }
+  ],
+  "question_count": 56,
+  "safe_improvement_values": {
+    "profile_visibility": "PRIVATE",
+    "search_engine_visible": "NO",
+    "discoverable_by_phone_email": "NO",
+    "follower_list_public": "NO",
+    "public_activity_visible": "NO",
+    "phone_public": "NO",
+    "email_public": "NO",
+    "birthday_public": "NO",
+    "home_info_public": "NO",
+    "workplace_public": "NO",
+    "education_public": "NO",
+    "relationship_public": "NO",
+    "current_location_public": "NO",
+    "geotagging_enabled": "NO",
+    "checkins_enabled": "NO",
+    "travel_plans_public": "NO",
+    "vacation_posts_real_time": "NO",
+    "location_patterns_public": "NO",
+    "posts_public": "NO",
+    "photo_context_public": "NO",
+    "child_or_family_media_public": "NO",
+    "routine_content_public": "NO",
+    "screen_documents_visible": "NO",
+    "photo_metadata_reviewed": "YES",
+    "accept_unknown_connections": "NEVER",
+    "connections_visible": "NO",
+    "follow_without_approval": "NO",
+    "unknown_requests_reviewed": "YES",
+    "connection_list_reviewed": "YES",
+    "can_anyone_tag": "NO",
+    "tag_review_enabled": "YES",
+    "tagged_posts_auto_visible": "NO",
+    "unknown_mentions_allowed": "NO",
+    "mfa_enabled": "YES",
+    "unique_passwords": "YES",
+    "password_reuse_reported": "NO",
+    "password_manager_used": "YES",
+    "login_alerts_enabled": "YES",
+    "recovery_info_reviewed": "YES",
+    "active_sessions_reviewed": "YES",
+    "unknown_devices_checked": "YES",
+    "third_party_apps_reviewed": "YES",
+    "unused_apps_present": "NO",
+    "permission_scope_minimized": "YES",
+    "social_login_connections_reviewed": "YES",
+    "responds_to_unverified_dm": "NEVER",
+    "clicks_unexpected_links": "NEVER",
+    "shares_verification_codes": "NO",
+    "shares_personal_details_in_dm": "NO",
+    "verifies_identity_before_trust": "YES",
+    "suspicious_giveaways_engaged": "NEVER",
+    "old_posts_reviewed": "YES",
+    "unused_accounts_reviewed": "YES",
+    "old_public_comments_reviewed": "YES",
+    "profile_history_reviewed": "YES",
+    "privacy_settings_reviewed": "YES"
+  },
+  "improvements": [
+    {
+      "id": "profile_visibility",
+      "label": "Limit profile visibility",
+      "group": "Profile"
+    },
+    {
+      "id": "phone_public",
+      "label": "Hide public phone visibility",
+      "group": "Personal info"
+    },
+    {
+      "id": "email_public",
+      "label": "Hide public email visibility",
+      "group": "Personal info"
+    },
+    {
+      "id": "birthday_public",
+      "label": "Limit full birth-date visibility",
+      "group": "Personal info"
+    },
+    {
+      "id": "workplace_public",
+      "label": "Limit workplace visibility",
+      "group": "Personal info"
+    },
+    {
+      "id": "home_info_public",
+      "label": "Remove precise home-related details",
+      "group": "Personal info"
+    },
+    {
+      "id": "current_location_public",
+      "label": "Stop broad real-time location sharing",
+      "group": "Location"
+    },
+    {
+      "id": "geotagging_enabled",
+      "label": "Review or disable geotagging",
+      "group": "Location"
+    },
+    {
+      "id": "checkins_enabled",
+      "label": "Limit real-time check-ins",
+      "group": "Location"
+    },
+    {
+      "id": "travel_plans_public",
+      "label": "Keep upcoming travel plans limited",
+      "group": "Location"
+    },
+    {
+      "id": "vacation_posts_real_time",
+      "label": "Delay vacation posts until after leaving",
+      "group": "Location"
+    },
+    {
+      "id": "location_patterns_public",
+      "label": "Avoid publishing recurring location patterns",
+      "group": "Location"
+    },
+    {
+      "id": "child_or_family_media_public",
+      "label": "Limit public family or child imagery",
+      "group": "Content"
+    },
+    {
+      "id": "screen_documents_visible",
+      "label": "Review photos for document or screen details",
+      "group": "Content"
+    },
+    {
+      "id": "posts_public",
+      "label": "Limit the audience for posts",
+      "group": "Content"
+    },
+    {
+      "id": "photo_metadata_reviewed",
+      "label": "Review photo metadata before sharing",
+      "group": "Content"
+    },
+    {
+      "id": "unknown_requests_reviewed",
+      "label": "Verify unfamiliar connection requests",
+      "group": "Connections"
+    },
+    {
+      "id": "accept_unknown_connections",
+      "label": "Reject or verify unknown requests",
+      "group": "Connections"
+    },
+    {
+      "id": "can_anyone_tag",
+      "label": "Restrict who can tag you",
+      "group": "Tagging"
+    },
+    {
+      "id": "tag_review_enabled",
+      "label": "Enable tag review",
+      "group": "Tagging"
+    },
+    {
+      "id": "mfa_enabled",
+      "label": "Enable multi-factor authentication",
+      "group": "Account security"
+    },
+    {
+      "id": "unique_passwords",
+      "label": "Use unique passwords",
+      "group": "Account security"
+    },
+    {
+      "id": "password_reuse_reported",
+      "label": "Replace reused passwords with unique ones",
+      "group": "Account security"
+    },
+    {
+      "id": "password_manager_used",
+      "label": "Use a password manager",
+      "group": "Account security"
+    },
+    {
+      "id": "login_alerts_enabled",
+      "label": "Enable sign-in alerts",
+      "group": "Account security"
+    },
+    {
+      "id": "active_sessions_reviewed",
+      "label": "Review active sessions and sign out unknown sessions",
+      "group": "Account security"
+    },
+    {
+      "id": "third_party_apps_reviewed",
+      "label": "Review connected applications",
+      "group": "Third-party apps"
+    },
+    {
+      "id": "unused_apps_present",
+      "label": "Remove unused integrations",
+      "group": "Third-party apps"
+    },
+    {
+      "id": "permission_scope_minimized",
+      "label": "Apply least-privilege app permissions",
+      "group": "Third-party apps"
+    },
+    {
+      "id": "clicks_unexpected_links",
+      "label": "Pause before opening unexpected links",
+      "group": "Social engineering"
+    },
+    {
+      "id": "shares_verification_codes",
+      "label": "Never share verification codes",
+      "group": "Social engineering"
+    },
+    {
+      "id": "shares_personal_details_in_dm",
+      "label": "Verify before sharing personal details in DMs",
+      "group": "Social engineering"
+    },
+    {
+      "id": "suspicious_giveaways_engaged",
+      "label": "Skip suspicious offers requesting personal data",
+      "group": "Social engineering"
+    },
+    {
+      "id": "verifies_identity_before_trust",
+      "label": "Verify urgent requests independently",
+      "group": "Social engineering"
+    },
+    {
+      "id": "old_posts_reviewed",
+      "label": "Review older public posts",
+      "group": "Digital footprint"
+    },
+    {
+      "id": "privacy_settings_reviewed",
+      "label": "Schedule a privacy-settings review",
+      "group": "Digital footprint"
+    }
+  ],
+  "risk_levels": {
+    "LOW": [
+      0,
+      20
+    ],
+    "MODERATE": [
+      21,
+      40
+    ],
+    "HIGH": [
+      41,
+      70
+    ],
+    "CRITICAL": [
+      71,
+      100
+    ]
+  },
+  "model": {
+    "peak_ratio_weight": 0.6,
+    "average_ratio_weight": 0.4
+  }
+}

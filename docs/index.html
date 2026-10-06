@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1015">
+  <meta name="description" content="A consent-based, privacy-first social-media risk self-assessment. No scraping. No profile identifiers. Just practical privacy coaching.">
+  <title>PRIVACY//FIELD — Social Privacy Risk Assessment</title>
+  <link rel="stylesheet" href="assets/styles.css">
+  <script src="assets/app.js" defer></script>
+</head>
+<body>
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+  <div class="noise" aria-hidden="true"></div>
+  <canvas id="signal-canvas" aria-hidden="true"></canvas>
+
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Privacy Field home">
+      <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <span><b>PRIVACY<span class="brand-slash">//</span>FIELD</b><small>PERSONAL EXPOSURE LAB</small></span>
+    </a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="#overview">Overview</a>
+      <a href="#cohort">Demo telemetry</a>
+      <a href="#method">Method</a>
+    </nav>
+    <button class="nav-cta" data-start-assessment>Run a scan <span aria-hidden="true">↗</span></button>
+  </header>
+
+  <main id="top">
+    <section class="hero page-shell" id="overview">
+      <div class="hero-copy reveal">
+        <p class="eyebrow"><span class="eyebrow-dot"></span> PRIVACY IS A SETTING, NOT A VIBE</p>
+        <h1>Your public life.<br><em>On your</em> terms.</h1>
+        <p class="hero-intro">A high-contrast privacy checkup for the details your social settings can quietly reveal. No account connection. No scraping. Just a sharper picture—and a practical way to dial exposure down.</p>
+        <div class="hero-actions">
+          <button class="button button-primary" data-start-assessment>Start my assessment <span aria-hidden="true">↗</span></button>
+          <a class="text-link" href="#cohort">Explore the fictional cohort <span aria-hidden="true">↓</span></a>
+        </div>
+        <div class="hero-proof"><span class="proof-icon">✳</span><span><strong>Private by design</strong><small>Answers stay in this browser tab only.</small></span><span class="proof-divider"></span><span class="proof-label">56 questions · ~5 min</span></div>
+      </div>
+
+      <div class="hero-visual reveal" aria-label="Animated privacy signal illustration">
+        <div class="visual-stamp"><span class="stamp-ring"></span><span>SELF<br>CHECK</span></div>
+        <div class="orbital orbital-a"></div><div class="orbital orbital-b"></div><div class="orbital orbital-c"></div>
+        <div class="field-orb"><div class="orb-core"><span class="orb-cross">+</span><b>YOUR<br>FOOTPRINT</b><small>≋ &nbsp; 10 SIGNALS</small></div></div>
+        <span class="orbit-node node-a"></span><span class="orbit-node node-b"></span><span class="orbit-node node-c"></span>
+        <div class="visual-caption"><span class="pulse-live"></span> CONSENT-BASED / LOCAL-FIRST <span class="caption-line"></span><span>NO PROFILE ACCESS</span></div>
+        <div class="floating-tag tag-one">DATA MINIMIZATION <b>✓</b></div>
+        <div class="floating-tag tag-two">YOUR INPUT <b>≠</b> YOUR IDENTITY</div>
+      </div>
+      <div class="hero-index" aria-hidden="true">P/F&nbsp; — &nbsp;001</div>
+    </section>
+
+    <section class="ticker" aria-label="Project principles">
+      <div class="ticker-track"><span>NO SCRAPING</span><i>✳</i><span>NO PRIVATE ACCOUNT ACCESS</span><i>✳</i><span>NO RAW PII STORAGE</span><i>✳</i><span>YOU CONTROL THE INPUT</span><i>✳</i><span>NO SCRAPING</span><i>✳</i><span>NO PRIVATE ACCOUNT ACCESS</span><i>✳</i><span>NO RAW PII STORAGE</span><i>✳</i><span>YOU CONTROL THE INPUT</span><i>✳</i></div>
+    </section>
+
+    <section class="cohort-section page-shell" id="cohort">
+      <div class="section-heading reveal">
+        <div><p class="eyebrow"><span class="eyebrow-dot"></span> LIVE DASHBOARD / FICTIONAL DATA</p><h2>Exposure, <em>in aggregate.</em></h2></div>
+        <div class="dataset-stamp"><span class="stamp-dot"></span><span><b id="cohort-size">1,200</b> synthetic assessments<br><small>DETERMINISTIC DEMO COHORT · NO REAL PEOPLE</small></span></div>
+      </div>
+      <div class="stat-grid reveal">
+        <article class="stat-card stat-main"><div class="stat-top"><span>COHORT MEAN RISK</span><span class="card-symbol">↗</span></div><div class="stat-number"><span id="cohort-average">—</span><small>/100</small></div><div class="stat-foot"><span class="mini-meter"><i id="average-meter"></i></span><span>Higher = more assessed exposure</span></div></article>
+        <article class="stat-card"><div class="stat-top"><span>HIGH / CRITICAL</span><span class="card-symbol coral">◉</span></div><div class="stat-number"><span id="high-share">—</span><small>%</small></div><div class="stat-foot"><span>Risk bands in synthetic cohort</span></div></article>
+        <article class="stat-card"><div class="stat-top"><span>TOP SIGNAL</span><span class="card-symbol lime">✳</span></div><div class="stat-number stat-text" id="top-signal">Loading</div><div class="stat-foot"><span id="top-signal-rate">Calculating demo pattern</span></div></article>
+        <article class="stat-card"><div class="stat-top"><span>YOUR CONTROLS</span><span class="card-symbol">⌁</span></div><div class="stat-number stat-text">You decide</div><div class="stat-foot"><span>Self-report only · no platform connection</span></div></article>
+      </div>
+
+      <div class="analytics-grid reveal">
+        <article class="panel chart-panel">
+          <div class="panel-heading"><div><p class="eyebrow">01 / CATEGORY RADAR</p><h3>Where risk clusters</h3></div><span class="panel-note">0 LOW <i>→</i> 100 HIGH</span></div>
+          <div class="chart-wrap"><div id="cohort-radar" class="radar-chart" role="img" aria-label="Radar chart of synthetic cohort category risk"></div><div class="chart-legend"><span><i class="legend-fill"></i> Synthetic cohort average</span><small>Educational rubric · not a compromise prediction</small></div></div>
+        </article>
+        <article class="panel distribution-panel">
+          <div class="panel-heading"><div><p class="eyebrow">02 / RISK BANDS</p><h3>Score distribution</h3></div><span class="panel-note">FICTIONAL</span></div>
+          <div class="distribution-body"><div class="donut-wrap"><div id="risk-donut" class="risk-donut"><div><b id="donut-center">—</b><small>profiles</small></div></div></div><div id="risk-legend" class="risk-legend"></div></div>
+        </article>
+        <article class="panel weakness-panel">
+          <div class="panel-heading"><div><p class="eyebrow">03 / REPEAT PATTERNS</p><h3>Most common weak spots</h3></div><span class="panel-note">TOP 5</span></div>
+          <div id="weakness-bars" class="weakness-bars"></div>
+        </article>
+        <article class="panel controls-panel">
+          <div class="panel-heading"><div><p class="eyebrow">04 / ACCOUNT HYGIENE</p><h3>Controls in the cohort</h3></div><span class="panel-note">SELF-REPORTED</span></div>
+          <div id="security-controls" class="controls-list"></div>
+        </article>
+      </div>
+      <p class="aggregate-note"><span>ⓘ</span> This dashboard is populated from the checked-in synthetic CSV—not scraped profiles, organization telemetry, or other visitors' assessments.</p>
+    </section>
+
+    <section class="assessment-section page-shell" id="assessment" hidden>
+      <div class="assessment-heading">
+        <div><p class="eyebrow"><span class="eyebrow-dot"></span> YOUR LOCAL CHECK-IN</p><h2>Map your <em>privacy perimeter.</em></h2><p>Answer about settings and habits only. Never enter a phone number, password, address, date of birth, exact location, private message, or username.</p></div>
+        <div class="privacy-pill"><span class="pulse-live"></span> ANSWERS ARE NOT SAVED</div>
+      </div>
+      <div class="assessment-layout">
+        <aside class="assessment-rail">
+          <div class="rail-label">ASSESSMENT PATH <span id="step-count">01 / 10</span></div>
+          <div class="progress-track"><i id="progress-fill"></i></div>
+          <div id="step-list" class="step-list" aria-label="Questionnaire categories"></div>
+          <div class="rail-note"><span>↗</span><p><b>Not sure?</b><br>Choose “Not sure” and review that setting in the platform later.</p></div>
+        </aside>
+        <div class="question-card">
+          <div class="question-card-top"><span id="step-kicker">CATEGORY 01</span><span class="required-note">SELF-REPORTED · NO RAW DATA</span></div>
+          <div id="question-step" class="question-step" aria-live="polite"></div>
+          <div class="step-controls"><button id="previous-step" class="button button-quiet" type="button">← Back</button><button id="next-step" class="button button-primary" type="button">Continue <span aria-hidden="true">→</span></button><button id="submit-assessment" class="button button-primary" type="button" hidden>Generate my readout <span aria-hidden="true">↗</span></button></div>
+          <div class="demo-tools"><button type="button" id="load-demo" class="demo-link">↳ Load fictional demo profile</button><span>Nothing is sent until you choose Generate.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="results-section page-shell" id="results" hidden>
+      <div class="result-heading"><div><p class="eyebrow"><span class="eyebrow-dot"></span> YOUR READOUT / <span id="result-date">JUST NOW</span></p><h2>Signal, <em>not surveillance.</em></h2></div><div class="result-actions"><a id="report-link" class="button button-outline" href="#" target="_blank" rel="noopener">Open report ↗</a><button id="delete-assessment" class="button button-quiet" type="button">Clear this readout</button></div></div>
+      <div class="result-grid">
+        <article class="score-panel panel"><div class="panel-heading"><div><p class="eyebrow">OVERALL PRIVACY RISK</p><h3>Your current readout</h3></div><span class="panel-note">0–100</span></div><div class="score-display"><div id="score-gauge" class="score-gauge"><div class="gauge-inner"><strong id="overall-score">—</strong><span>/ 100</span></div></div><div class="score-summary"><span id="risk-badge" class="risk-badge">—</span><p id="risk-explainer">A higher score means higher assessed exposure under this educational model.</p><small id="assessment-reference"></small></div></div><div class="score-footnote">EDUCATIONAL RUBRIC · NOT A COMPROMISE PREDICTION</div></article>
+        <article class="panel result-radar-panel"><div class="panel-heading"><div><p class="eyebrow">CATEGORY BREAKDOWN</p><h3>The ten signal lanes</h3></div><span class="panel-note">HIGHER = MORE RISK</span></div><div id="result-radar" class="radar-chart result-radar" role="img" aria-label="Your category risk radar"></div><div id="category-list" class="category-list"></div></article>
+      </div>
+      <div class="insight-grid">
+        <article class="panel findings-panel"><div class="panel-heading"><div><p class="eyebrow">01 / EXPOSURE FLAGS</p><h3>What deserves a second look</h3></div><span id="finding-count" class="count-chip">0 FLAGS</span></div><div id="findings-list" class="finding-list"></div></article>
+        <article class="panel recommendations-panel"><div class="panel-heading"><div><p class="eyebrow">02 / NEXT BEST MOVES</p><h3>Make the perimeter tighter</h3></div><span class="panel-note">PRIORITIZED</span></div><div id="recommendations-list" class="recommendation-list"></div></article>
+      </div>
+      <article class="panel simulator-panel"><div class="simulator-intro"><div><p class="eyebrow">03 / WHAT-IF SIMULATOR</p><h3>Try a safer <em>version.</em></h3><p>Choose changes to test the framework's math. This changes no platform setting and is not a safety guarantee.</p></div><div class="sim-icon" aria-hidden="true">↗</div></div><div id="improvement-options" class="improvement-options"></div><div class="simulator-bottom"><button id="run-simulation" class="button button-primary" type="button">Simulate selected changes <span aria-hidden="true">↗</span></button><div id="simulation-result" class="simulation-result" aria-live="polite"><span class="sim-placeholder">Select one or more improvements to see a simulated score.</span></div></div></article>
+      <div class="result-disclaimer"><span>ⓘ</span> The assessment is a coaching framework, not a guarantee that an account will or will not be compromised. It does not inspect social accounts, analyze photos, or collect real-world identifiers.</div>
+    </section>
+
+    <section class="method-section page-shell" id="method">
+      <div class="section-heading reveal"><div><p class="eyebrow"><span class="eyebrow-dot"></span> HOW THE FIELD WORKS</p><h2>Privacy, with the <em>lights on.</em></h2></div><p class="method-summary">A transparent, rule-based educational framework. It shows its assumptions, keeps the user in control, and treats uncertainty as a reason to review—not as proof of danger.</p></div>
+      <div class="method-grid">
+        <article class="method-card"><span class="method-number">01</span><span class="method-icon">⌁</span><h3>Privacy ≠ security</h3><p>Privacy controls how information is exposed and used. Security protects accounts and systems from unauthorized access. A strong password can coexist with a very public profile.</p><div class="method-example"><b>Example</b><span>MFA ON + contact details PUBLIC = better account security, unchanged information exposure.</span></div></article>
+        <article class="method-card"><span class="method-number">02</span><span class="method-icon">◌</span><h3>Footprint, in context</h3><p>Active footprint is content you choose to share. Passive footprint can be generated by services depending on their context. This tool evaluates only self-reported practices.</p><div class="method-example"><b>Look back</b><span>Old posts, comments, photos, unused accounts, and profile history can outlive your intended audience.</span></div></article>
+        <article class="method-card"><span class="method-number">03</span><span class="method-icon">↗</span><h3>Small clues, big context</h3><p>Public work, school, interests, travel, family references, or events may make deceptive contact seem more believable. That is a reason for awareness—not a reason to profile anyone.</p><div class="method-example"><b>Defensive habit</b><span>Pause. Verify through a trusted channel. Never share sign-in codes.</span></div></article>
+        <article class="method-card"><span class="method-number">04</span><span class="method-icon">✳</span><h3>Scores are explainable</h3><p>Ten category scores are weighted to 0–100. LOW 0–20, MODERATE 21–40, HIGH 41–70, CRITICAL 71–100. Higher means more assessed exposure.</p><div class="method-example"><b>Not a verdict</b><span>Weights and thresholds are educational assumptions—not a professional risk certification.</span></div></article>
+      </div>
+      <div class="workflow-strip"><span>01 / QUESTIONNAIRE</span><b>→</b><span>02 / VALIDATE</span><b>→</b><span>03 / FEATURE MAP</span><b>→</b><span>04 / SCORE + COACH</span><b>→</b><span>05 / REPORT</span></div>
+    </section>
+
+    <section class="principles-section page-shell">
+      <div class="principles-copy"><p class="eyebrow"><span class="eyebrow-dot"></span> PRIVACY BY DESIGN</p><h2>Less data.<br><em>More agency.</em></h2><p>We designed the assessment to ask whether a detail is visible—not what the detail is. This GitHub Pages build stores nothing; answers and results stay in the current browser tab.</p><a href="#method" class="text-link" id="checklist-download">Download the privacy checklist <span aria-hidden="true">↓</span></a></div>
+      <div class="principle-list">
+        <div><b>01</b><span><strong>Data minimization</strong><small>No phone, email, birthday, password, exact location, photo, or message fields.</small></span><i>✓</i></div>
+        <div><b>02</b><span><strong>Purpose limitation</strong><small>Inputs are used only to calculate a self-assessment and its coaching.</small></span><i>✓</i></div>
+        <div><b>03</b><span><strong>Privacy by default</strong><small>No account connection, upload flow, tracker, external font, or third-party analytics.</small></span><i>✓</i></div>
+        <div><b>04</b><span><strong>User control</strong><small>Run, simulate, print, and delete your derived result. Nothing is changed on a platform.</small></span><i>✓</i></div>
+        <div><b>05</b><span><strong>Retention limits</strong><small>Clear the readout, refresh, or close the tab to discard the current answers.</small></span><i>✓</i></div>
+      </div>
+    </section>
+
+    <section class="final-cta page-shell"><div class="final-mark" aria-hidden="true">P<span>/</span>F</div><div><p class="eyebrow">A BETTER FOOTPRINT STARTS WITH A CHECK-IN</p><h2>Take back the <em>signal.</em></h2><p>Five minutes. Zero profile access. One practical next step.</p></div><button class="button button-primary" data-start-assessment>Start a private assessment <span aria-hidden="true">↗</span></button></section>
+  </main>
+
+  <footer class="site-footer page-shell"><a class="brand footer-brand" href="#top"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span><b>PRIVACY<span class="brand-slash">//</span>FIELD</b><small>STUDENT CYBERSECURITY PROJECT</small></span></a><div><span>DEFENSIVE BY DESIGN</span><span>FICTIONAL DATA ONLY</span><span>© 2026</span></div><p>This tool is for privacy education and self-assessment—not hiring decisions, surveillance, or a guarantee of safety.</p></footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <noscript><div class="noscript-note">Enable JavaScript to use this local interactive assessment.</div></noscript>
+</body>
+</html>

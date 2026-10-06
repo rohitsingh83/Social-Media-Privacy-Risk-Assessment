@@ -1,0 +1,127 @@
+{
+  "sample_size": 1200,
+  "source": "Synthetic fictional assessment records only",
+  "average_score": 49.7,
+  "risk_distribution": {
+    "LOW": 0.0,
+    "MODERATE": 13.2,
+    "HIGH": 86.8,
+    "CRITICAL": 0.1
+  },
+  "category_averages": [
+    {
+      "key": "profile",
+      "label": "Profile",
+      "score": 46.3,
+      "weight": 10
+    },
+    {
+      "key": "personal_info",
+      "label": "Personal info",
+      "score": 52.2,
+      "weight": 15
+    },
+    {
+      "key": "location",
+      "label": "Location",
+      "score": 50.6,
+      "weight": 15
+    },
+    {
+      "key": "content",
+      "label": "Content",
+      "score": 50.5,
+      "weight": 10
+    },
+    {
+      "key": "connections",
+      "label": "Connections",
+      "score": 47.3,
+      "weight": 10
+    },
+    {
+      "key": "tagging",
+      "label": "Tagging",
+      "score": 42.0,
+      "weight": 5
+    },
+    {
+      "key": "account_security",
+      "label": "Account security",
+      "score": 55.8,
+      "weight": 15
+    },
+    {
+      "key": "third_party",
+      "label": "Third-party apps",
+      "score": 42.0,
+      "weight": 5
+    },
+    {
+      "key": "social_engineering",
+      "label": "Social engineering",
+      "score": 50.5,
+      "weight": 10
+    },
+    {
+      "key": "digital_footprint",
+      "label": "Digital footprint",
+      "score": 46.0,
+      "weight": 5
+    }
+  ],
+  "top_weaknesses": [
+    {
+      "key": "old_posts_reviewed",
+      "label": "Older posts not reviewed",
+      "rate": 38.8
+    },
+    {
+      "key": "tag_review_enabled",
+      "label": "Tag review disabled",
+      "rate": 38.8
+    },
+    {
+      "key": "third_party_apps_reviewed",
+      "label": "Connected apps not reviewed",
+      "rate": 38.3
+    },
+    {
+      "key": "mfa_enabled",
+      "label": "MFA disabled",
+      "rate": 38.2
+    },
+    {
+      "key": "unknown_connections",
+      "label": "Unfamiliar connections",
+      "rate": 29.7
+    },
+    {
+      "key": "email_public",
+      "label": "Email visibility",
+      "rate": 28.4
+    }
+  ],
+  "security_controls": [
+    {
+      "key": "mfa_enabled",
+      "label": "MFA enabled",
+      "enabled_percent": 61.8
+    },
+    {
+      "key": "login_alerts_enabled",
+      "label": "Login alerts",
+      "enabled_percent": 58.2
+    },
+    {
+      "key": "tag_review_enabled",
+      "label": "Tag review",
+      "enabled_percent": 61.2
+    },
+    {
+      "key": "third_party_apps_reviewed",
+      "label": "Apps reviewed",
+      "enabled_percent": 61.7
+    }
+  ]
+}

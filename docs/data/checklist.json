@@ -1,0 +1,80 @@
+{
+  "checklist": [
+    {
+      "id": "check-1",
+      "text": "Review profile visibility and public search discoverability."
+    },
+    {
+      "id": "check-2",
+      "text": "Hide unnecessary contact information and full birth-date visibility."
+    },
+    {
+      "id": "check-3",
+      "text": "Review workplace, education, family, and relationship details."
+    },
+    {
+      "id": "check-4",
+      "text": "Review location sharing, geotags, check-ins, and routine patterns."
+    },
+    {
+      "id": "check-5",
+      "text": "Avoid unnecessary real-time location and travel announcements."
+    },
+    {
+      "id": "check-6",
+      "text": "Review who can see posts, followers, and connection lists."
+    },
+    {
+      "id": "check-7",
+      "text": "Restrict tagging and enable approval before tags appear."
+    },
+    {
+      "id": "check-8",
+      "text": "Verify unfamiliar connection requests before accepting them."
+    },
+    {
+      "id": "check-9",
+      "text": "Enable multi-factor authentication using a strong supported method."
+    },
+    {
+      "id": "check-10",
+      "text": "Use unique passwords; consider a reputable password manager."
+    },
+    {
+      "id": "check-11",
+      "text": "Enable login alerts and review recovery options."
+    },
+    {
+      "id": "check-12",
+      "text": "Review active sessions and unfamiliar devices in platform settings."
+    },
+    {
+      "id": "check-13",
+      "text": "Review connected third-party apps and remove unused integrations."
+    },
+    {
+      "id": "check-14",
+      "text": "Apply least privilege to permissions granted to connected apps."
+    },
+    {
+      "id": "check-15",
+      "text": "Review photo framing and metadata before sharing."
+    },
+    {
+      "id": "check-16",
+      "text": "Pause before opening unexpected links or acting on urgent messages."
+    },
+    {
+      "id": "check-17",
+      "text": "Never share one-time verification codes or recovery codes."
+    },
+    {
+      "id": "check-18",
+      "text": "Review older public posts, comments, profile history, and unused accounts."
+    },
+    {
+      "id": "check-19",
+      "text": "Schedule a privacy-settings review every few months."
+    }
+  ]
+}

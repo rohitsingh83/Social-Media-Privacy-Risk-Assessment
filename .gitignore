@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.coverage
+
+# Local persistence / environment
+.env
+instance/*.sqlite3
+instance/*.db
+*.sqlite3-wal
+*.sqlite3-shm
+
+# Local exports and generated report instances
+reports/generated/
+*.pdf
+
+# Editors / operating system
+.DS_Store
+.idea/
+.vscode/
